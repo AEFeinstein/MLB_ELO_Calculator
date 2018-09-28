@@ -1,13 +1,13 @@
-package com.gelakinetic.mlb_elo_calculator
+package com.gelakinetic.mlbEloCalculator
 
 import java.util.Comparator
 
 class MlbTeam internal constructor(internal var name: String) : Comparable<MlbTeam> {
-    internal var wins: Int = 0
-    internal var losses: Int = 0
-    internal var elo: Double = EloCalculator.STARTING_ELO
-    var winLossRank: Int = 0
-    var eloRank: Int = 0
+    internal var wins = 0
+    internal var losses = 0
+    internal var elo = EloCalculator.STARTING_ELO
+    internal var winLossRank = 0
+    internal var eloRank = 0
 
     override fun toString(): String {
         return String.format("%-21s (%3d-%3d) ELO: %d", name, wins, losses, Math.round(elo).toInt())
