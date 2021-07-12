@@ -1,5 +1,7 @@
 package com.gelakinetic.mlbEloCalculator
 
+import kotlin.math.pow
+
 object EloCalculator {
     /*
      * Math from:
@@ -13,7 +15,7 @@ object EloCalculator {
     }
 
     private fun transformRating(rating: Double): Double {
-        return Math.pow(10.0, rating / 400.0)
+        return 10.0.pow(rating / 400.0)
     }
 
     private fun expectedScore(rating1: Double, rating2: Double): Double {

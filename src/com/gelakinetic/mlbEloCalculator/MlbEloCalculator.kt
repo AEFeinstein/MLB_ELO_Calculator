@@ -5,7 +5,7 @@ import java.io.IOException
 import java.util.regex.Pattern
 
 
-fun main(args: Array<String>) {
+fun main() {
 
     val teams = ArrayList<MlbTeam>(30)
 
@@ -14,7 +14,7 @@ fun main(args: Array<String>) {
 
     try {
         // Read the baseball-reference web page for all 2018 scores, then for each game
-        for (game in Jsoup.connect("https://www.baseball-reference.com/leagues/MLB/2018-schedule.shtml").get().getElementsByAttributeValue("class", "game")) {
+        for (game in Jsoup.connect("https://www.baseball-reference.com/leagues/MLB/2021-schedule.shtml").get().getElementsByAttributeValue("class", "game")) {
             // Try to match it against the regular expression
             val matcher = pattern.matcher(game.text())
             if (matcher.find()) {
