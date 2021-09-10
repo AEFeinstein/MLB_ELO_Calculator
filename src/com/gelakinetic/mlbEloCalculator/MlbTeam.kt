@@ -26,8 +26,12 @@ class MlbTeam internal constructor(internal var name: String) : Comparable<MlbTe
 
     internal class MlbTeamWinsComparator : Comparator<MlbTeam> {
         override fun compare(arg0: MlbTeam, arg1: MlbTeam): Int {
-            return -1 * arg0.wins.compareTo(arg1.wins)
+            return -1 * arg0.getWinPct().compareTo(arg1.getWinPct())
         }
+    }
+
+    private fun getWinPct(): Float {
+        return this.wins / (this.wins.toFloat() + this.losses.toFloat())
     }
 
     internal class MlbTeamRankChangeComparator : Comparator<MlbTeam> {
